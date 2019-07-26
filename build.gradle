@@ -1,0 +1,33 @@
+plugins {
+    id 'war'                 // 不能和id 'java'共存
+    id 'idea'  
+    id 'maven-publish'       // gradle publishToMavenLocal
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+version 'lecture-2' // 等你拿到FLAG Offer了，把它改成FLAG-1.0.0
+group = 'com.newsoftvalley'
+
+repositories {
+    mavenLocal()     // ~/.m2/
+    mavenCentral()   // http://repo1.maven.org/maven2/
+                     // -> ~/.gradle/caches/modules-2/files-2.1/
+}
+
+dependencies {
+    implementation     'javax.servlet:javax.servlet-api:4.0.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.testng:testng:6.14.3'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            //from components.java  // for id 'java'
+            from components.web     // for id 'war'
+        }
+    }
+}
+

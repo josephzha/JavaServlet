@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app PUBLIC
+        '-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN'
+        'http://java.sun.com/dtd/web-app_2_3.dtd'>
+
+<web-app>
+    <!-- servlet definition -->
+    <servlet>
+        <servlet-name>AccountServlet</servlet-name>
+        <servlet-class>com.newsoftvalley.customer.AccountServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>com.newsoftvalley.customer.OrderServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+    </servlet>
+    <!-- servlet mappings -->
+    <servlet-mapping>
+        <servlet-name>AccountServlet</servlet-name>
+        <url-pattern>/account/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/order/*</url-pattern>
+    </servlet-mapping>
+</web-app>
